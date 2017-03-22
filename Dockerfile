@@ -10,12 +10,9 @@ RUN mkdir -p ${ZEPPELIN_HOME} && \
     mv ${ZEPPELIN_HOME}/zeppelin-${ZEPPELIN_VERSION}-bin-all/* ${ZEPPELIN_HOME} && \
     rm -rf ${ZEPPELIN_HOME}/zeppelin-${ZEPPELIN_VERSION}-bin-all && \
     rm -rf *.tgz && \
-    mkdir -p ${ZEPPELIN_HOME}/interpreter/mongodb
-#    curl -SL -o ${ZEPPELIN_HOME}/interpreter/mongodb/zeppelin-mongodb-${ZEPPELIN_VERSION}.jar \
-#      https://github.com/bbonnin/zeppelin-mongodb-interpreter/releases/download/${ZEPPELIN_VERSION}/zeppelin-mongodb-${ZEPPELIN_VERSION}.zip
-
-# Temp hack until zeppelin-mongodb-0.7.0 is released
-COPY zeppelin-mongodb-0.7.0-jar-with-dependencies.jar ${ZEPPELIN_HOME}/interpreter/mongodb/
+    mkdir -p ${ZEPPELIN_HOME}/interpreter/mongodb && \
+    curl -SL -o ${ZEPPELIN_HOME}/interpreter/mongodb/zeppelin-mongodb-${ZEPPELIN_VERSION}.jar \
+      https://github.com/bbonnin/zeppelin-mongodb-interpreter/releases/download/${ZEPPELIN_VERSION}/zeppelin-mongodb-${ZEPPELIN_VERSION}.zip
 
 COPY run.sh /${ZEPPELIN_HOME}/run.sh
 RUN chmod +x /${ZEPPELIN_HOME}/run.sh
