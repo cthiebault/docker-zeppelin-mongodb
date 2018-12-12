@@ -1,6 +1,6 @@
 FROM openjdk:7-jdk
 
-ENV ZEPPELIN_VERSION=0.7.0 \
+ENV ZEPPELIN_VERSION=0.8.0 \
     ZEPPELIN_HOME=/opt/zeppelin \
     MONGO_VERSION=3.4
 
